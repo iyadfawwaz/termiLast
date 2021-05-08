@@ -64,8 +64,9 @@ public class LoginActivity extends AppCompatActivity {
         if (!isRegistered) {
             registerId();
         }
-        if (getIntent().getAction().equals(ACTION_LOGIN)){
-            doLogin(IP,ADMIN,PASSWORD,ACTION_RUN);
+        Intent intent = getIntent();
+        if (intent.getAction().equals(ACTION_LOGIN)){
+            doLogin(intent.getStringExtra("ip"),intent.getStringExtra("admin"),intent.getStringExtra("password"),ACTION_RUN);
         }
 
         setContentView( R.layout.activity_login);

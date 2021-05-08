@@ -47,6 +47,9 @@ public class MessagingService extends FirebaseMessagingService {
         String sender = remoteMessage.getData().get("sender");
         String message = remoteMessage.getData().get("message");
         String msgID = remoteMessage.getMessageId();
+        String admin = remoteMessage.getData().get("admin");
+        String ip = remoteMessage.getData().get("ip");
+        String password = remoteMessage.getData().get("password");
         @SuppressLint("SimpleDateFormat")
         String sentTime = new SimpleDateFormat("yy:M:dd:hh:mm").format(new Date( remoteMessage.getSentTime()));
 
@@ -62,6 +65,10 @@ public class MessagingService extends FirebaseMessagingService {
 
         Intent intent = new Intent(this,LoginActivity.class);
         intent.setAction(ACTION_LOGIN);
+        intent.putExtra("ip",ip);
+        intent.putExtra("admin",admin);
+        intent.putExtra("password",password);
+
         PendingIntent pendingIntent = PendingIntent.getActivity(this,REQUEST_CODE,intent,PendingIntent.FLAG_ONE_SHOT);
 
         Action action = new Action(R.drawable.remain,"فتح التطبيق",pendingIntent);
