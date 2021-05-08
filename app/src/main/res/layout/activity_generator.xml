@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="9dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="7dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listax"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/wa"
+                android:background="@color/teal_700"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_margin="5dp"/>
+            <EditText
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/adet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uac"
+                android:inputType="number"
+                android:fontFamily="serif-monospace"
+                android:autofillHints="@string/app_name" />
+
+            <EditText
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/lengthu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/utall"
+                android:inputType="number"
+                android:fontFamily="serif-monospace"
+                android:autofillHints="@string/app_name" />
+
+            <EditText
+                android:textColor="#c55c55"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/prefix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/preuser"
+                android:fontFamily="sans-serif-light"
+                android:autofillHints="@string/app_name" />
+
+            <EditText
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/lengthp"
+                android:focusableInTouchMode="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/passtall"
+                android:inputType="number"
+                android:fontFamily="serif-monospace"
+                android:autofillHints="@string/app_name" />
+
+            <Spinner
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/spinner"
+                android:focusableInTouchMode="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:textColor="@color/white"
+                android:id="@+id/genbtn"
+                android:background="@color/teal_700"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/genera"
+                android:fontFamily="serif-monospace"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
