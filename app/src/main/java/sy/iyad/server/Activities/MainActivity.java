@@ -26,6 +26,7 @@ import static sy.iyad.server.ServerInformations.RUNNING_TRUE;
 import static sy.iyad.server.ServerInformations.UPTIME_COMMAND;
 import static sy.iyad.server.ServerInformations.VOLTAGE_COMMAND;
 import static sy.iyad.server.Utils.ServerInfo.ETHER;
+import static sy.iyad.server.Utils.ServerInfo.SKIPPING;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
         disco = findViewById(R.id.dis);
 
-        if (getIntent().getAction().equals(ACTION_RUN)){
+        if (SKIPPING.equals(ACTION_RUN)){
             startLogging();
         }
 

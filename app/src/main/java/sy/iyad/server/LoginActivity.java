@@ -4,6 +4,7 @@ package sy.iyad.server;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,9 +40,7 @@ import static sy.iyad.server.ServerInformations.ADMIN;
 import static sy.iyad.server.ServerInformations.ETHERSNAME_COMMAND;
 import static sy.iyad.server.ServerInformations.IP;
 import static sy.iyad.server.ServerInformations.PASSWORD;
-import static sy.iyad.server.Utils.ServerInfo.ETHER;
-import static sy.iyad.server.Utils.ServerInfo.VIP;
-import static sy.iyad.server.Utils.ServerInfo.isRegistered;
+import static sy.iyad.server.Utils.ServerInfo.*;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -51,12 +50,15 @@ public class LoginActivity extends AppCompatActivity {
     public static final String ACTION_LOGIN = "AcXFU2M0842021";
     public static final String ACTION_RUN = "ArXFU2M0842021";
 
+    public static final String SHARED_KEY="Sk0842021ChineScood";
+
     EditText admin,ip,pass;
     Button login;
     TextView textView;
     SwitchMaterial switchMaterial;
 
     FloatingActionButton actionButton,registerToken;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         Intent intent = getIntent();
         if (intent.getAction().equals(ACTION_LOGIN)){
-            doLogin(intent.getStringExtra("ip"),intent.getStringExtra("admin"),intent.getStringExtra("password"),ACTION_RUN);
+            doLogin(loadInfo("ip"),loadInfo("admin"),loadInfo("password"),ACTION_RUN);
         }
 
         setContentView( R.layout.activity_login);
@@ -82,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
             switchMaterial = findViewById(R.id.switch1);
 
             requerPerms();
-            laodInfo();
+            laodMainInfo();
 
             login.setOnClickListener(v ->  {
 
@@ -101,9 +103,9 @@ public class LoginActivity extends AppCompatActivity {
                                      });
 
             actionButton.setOnClickListener(v ->  {
-                    ip.setText(IP);
-                    admin.setText(ADMIN);
-                    pass.setText(PASSWORD);
+                    ip.setText(loadInfo("ip"));
+                    admin.setText(loadInfo("admin"));
+                    pass.setText(loadInfo("password"));
 
             });
             actionButton.setOnLongClickListener(v -> {
@@ -137,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void laodInfo() {
+    private void laodMainInfo() {
         ip.setText(IP);
         admin.setText(ADMIN);
         pass.setText("");
@@ -151,6 +153,7 @@ public class LoginActivity extends AppCompatActivity {
                 loadSetupInfo(aips,aadmins,apasss);
                 showHappens("success as : "+ api.toString());
                 getEtherNameAndSaveToServerInfo();
+                SKIPPING = action;
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.setAction(action);
                 startActivity(intent);
@@ -218,21 +221,42 @@ public class LoginActivity extends AppCompatActivity {
     private void showHappens( String message) {
 
         Toast toast = Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG);
-        View view = toast.getView();
-        view.setBackgroundColor(Color.RED);
-        toast.setView(view);
-        toast.setGravity(Gravity.BOTTOM,0,0);
-        toast.setMargin(getResources().getDimension(R.dimen.d5),getResources().getDimension(R.dimen.d4));
+       // View view = toast.getDuration();
+       // view.setBackgroundColor(Color.RED);
+       // toast.setView(view);
+
+        toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP,0,0);
+        toast.setMargin(getResources().getDimension(R.dimen.d5),getResources().getDimension(R.dimen.d5));
         toast.show();
     }
+
+    private String loadInfo(@NonNull String key){
+      SharedPreferences sharedPreferences =  getSharedPreferences(SHARED_KEY,MODE_PRIVATE);
+      return sharedPreferences.getString(key,null);
+
+    }
+
+
+    private void saveInfo(@NonNull String key,@NonNull String value){
+
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_KEY,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key,value);
+        editor.apply();
+    }
+
 
     @SuppressLint("SetTextI18n")
     private void loadSetupInfo(@NonNull String ip, @NonNull String username, @NonNull String password){
 
        // if (switchMaterial.isChecked()) {
+
             IP = ip;
             ADMIN = username;
             PASSWORD = password;
+            saveInfo("ip",ip);
+            saveInfo("admin",username);
+            saveInfo("password",password);
       //  }
         JSONObject jsonObject = new JSONObject();
         try {

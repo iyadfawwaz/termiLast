@@ -11,5 +11,6 @@ public class ServerInfo {
     public static volatile boolean isRegistered = true;
     public static String[] ETHER = new String[13];
     public static int VIP = 0xFFC22B55;
+    public static String SKIPPING = "SKIPPED";
 
 }
