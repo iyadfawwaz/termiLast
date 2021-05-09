@@ -24,23 +24,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ser"
         tools:ignore="AllowBackup">
-        <activity android:name="sy.iyad.server.LoginActivity"
+
+        <activity
+            android:name="sy.iyad.server.LoginActivity"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="sy.iyad.server.Activities.CommanderActivity"
+        <activity
+            android:name="sy.iyad.server.Activities.CommanderActivity"
             android:windowSoftInputMode="adjustResize">
 
         </activity>
-        <activity android:name="sy.iyad.server.Activities.GenerateUserActivity"
+        <activity
+            android:name="sy.iyad.server.Activities.GenerateUserActivity"
             android:windowSoftInputMode="adjustResize">
 
         </activity>
-        <activity android:name="sy.iyad.server.Activities.MainActivity"
+        <activity
+            android:name="sy.iyad.server.Activities.MainActivity"
             android:windowSoftInputMode="adjustResize">
 
         </activity>
@@ -54,7 +58,8 @@
                 <data android:mimeType="text/plain"/>
             </intent-filter>
         </activity>
-        <service android:name="sy.iyad.server.FirebaseUtils.MessagingService"
+        <service
+            android:name="sy.iyad.server.FirebaseUtils.MessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>

@@ -37,4 +37,6 @@
     <string name="runbrow">تشغيل المستعرض</string>
     <string name="saveb">حفظ معلومات الدخول</string>
     <string name="nova">#null</string>
+    <string name="dele">حذف معلومات الدخول</string>
+    <string name="log_">#logs</string>
 </resources>

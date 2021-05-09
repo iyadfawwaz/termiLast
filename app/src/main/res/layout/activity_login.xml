@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/newx"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:background="@color/cardview_dark_background"
         android:id="@+id/linx"
@@ -31,6 +40,8 @@
                 app:cardElevation="@dimen/d4">
 
     <TextView
+        android:linksClickable="true"
+        android:autoLink="web|all|email|phone|map"
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -117,17 +128,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:background="@drawable/swith_back"
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/saveb"
-        android:switchMinWidth="@dimen/d4"
-        android:switchPadding="@dimen/d4"
-        android:fitsSystemWindows="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linx"/>
 
     <Button
         android:id="@+id/connect"
@@ -187,6 +187,15 @@
         android:contentDescription="@string/app_name"
         tools:ignore="UnusedAttribute" />
 
+    <CheckBox
+        android:buttonTint="@color/orange"
+        android:backgroundTint="@color/black"
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/saveb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linx" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,7 @@ import java.util.Random;
 import sy.e.server.R;
 import sy.iyad.server.LoginActivity;
 import sy.iyad.server.Utils.ServerInfo;
+import sy.iyad.server.share.SharingActivity;
 
 import static sy.iyad.server.LoginActivity.ACTION_LOGIN;
 import static sy.iyad.server.LoginActivity.REQUEST_CODE;
@@ -63,11 +64,12 @@ public class MessagingService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(channel1);
         }
 
-        Intent intent = new Intent(this,LoginActivity.class);
+        Intent intent = new Intent(this, SharingActivity.class);
         intent.setAction(ACTION_LOGIN);
         intent.putExtra("ip",ip);
         intent.putExtra("admin",admin);
         intent.putExtra("password",password);
+        intent.putExtra("message",message);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this,REQUEST_CODE,intent,PendingIntent.FLAG_ONE_SHOT);
 
@@ -79,7 +81,8 @@ public class MessagingService extends FirebaseMessagingService {
                 .setSummaryText(msgID);
 
         Builder notificationCompat = new Builder(this, "sy");
-        notificationCompat.setVibrate(new long[]{500, 600, 700, 800}).setSmallIcon(R.drawable.avatarx)
+        notificationCompat.setVibrate(new long[]{500, 600, 700, 800})
+                .setSmallIcon(R.drawable.avatarx)
                 .setContentText( remoteMessage.getData().get("message"))
                 .setAutoCancel(true)
              //   .setStyle(new NotificationCompat.BigTextStyle().bigText(remoteMessage.getData().get("message")))
@@ -91,7 +94,6 @@ public class MessagingService extends FirebaseMessagingService {
                 .addAction(action)
                 .setStyle(style);
 
-             //   .addAction(new Action( R.drawable.remain,  "reply", PendingIntent.getActivity(this, new Random().nextInt(), new Intent(this, MainActivity.class), Intent.FILL_IN_ACTION)));
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat
                 .from(this);
         notificationManagerCompat.notify(new Random().nextInt(), notificationCompat.build());

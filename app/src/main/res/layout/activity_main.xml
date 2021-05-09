@@ -273,8 +273,10 @@
             android:layout_marginTop="12dp"
             android:text="@string/runbrow"/>
 
-        <ListView
-            android:id="@+id/liste"
+        <androidx.recyclerview.widget.RecyclerView
+            android:transcriptMode="alwaysScroll"
+            android:stackFromBottom="true"
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
