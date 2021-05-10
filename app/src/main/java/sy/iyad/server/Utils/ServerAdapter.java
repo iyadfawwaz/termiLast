@@ -2,7 +2,6 @@ package sy.iyad.server.Utils;
 
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -15,7 +14,6 @@ import sy.e.server.R;
 public class ServerAdapter extends RecyclerView.Adapter<ServerViewHolder> {
 
     ArrayList<String> arrayList;
-    Context context;
 
     public ServerAdapter(@NonNull ArrayList<String> arrayList) {
 

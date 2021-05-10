@@ -1,15 +1,14 @@
 package sy.iyad.server;
 
 
-public abstract class ServerInformations {
+public abstract class ServerInformation {
 
     public static final String[] SERVER_KEYWORDS={
-
-            "system", "caps-man"    , "console" , "file"    ,
+            "system", "caps-man"    , "console" , "file"    ,"message" ,"tool",
             "ip"  ,  "log"     ,    "mpls"    ,  "partitions" , "ppp"  ,  "ra",
-            "certificate" , "disk"  ,   "interface" , "ipv6" ,
+            "certificate" , "disk"  ,   "interface" , "ipv6" ,"beep","quit",
             "metarouter" , "openflow"  ,"port"    ,    "queue" , "ro",
-
+            "ping",
             "accounting",  "arp" ,   "dhcp-client" , "dhcp-server",
             "firewall" , "ipsec"   ,     "neighbor" , "pool"  , "route"  ,
             "settings" , "socks"  ,"tftp"        ,  "upnp",
@@ -29,10 +28,10 @@ public abstract class ServerInformations {
             "backup"   ,"default-configuration" , "history"  , "license" , "ntp"  ,
             "routerboard",  "upgrade" ,  "check-installation" , "reset-configuration"
             , "ssh"    ,     "telnet",
-    "clock"  ,  "gps"     ,               "identity" , "logging" , "package" ,
-            "scheduler"  ,  "ups"     ,            "serial-terminal"   ,   "ssh-exec",
+    "clock"  ,  "gps"     ,      "identity" , "logging" , "package" ,
+            "scheduler"  ,  "ups"     ,       "serial-terminal"   ,   "ssh-exec",
     "health"       ,          "leds"   ,   "note"    , "resource" , "script"   ,
-            "watchdog" , "reboot"        ,      "shutdown"        ,     "sup-output",
+            "watchdog" , "reboot"   ,      "shutdown"        ,     "sup-output",
 
             "bandwidth-server",  "graphing"  ,  "romon" ,  "traffic-generator"
             ,"bandwidth-test" , "fetch"   ,    "mac-scan"  ,    "speed-test",  "wol",

@@ -4,15 +4,12 @@ package sy.iyad.server.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.List;
 import java.util.Map;
 import sy.e.server.R;
@@ -20,10 +17,10 @@ import sy.iyad.mikrotik.MikrotikServer;
 import sy.iyad.mikrotik.Models.ExecutionEventListener;
 import sy.iyad.server.Utils.Logger;
 
-import static sy.iyad.server.ServerInformations.CPU_COMMAND;
-import static sy.iyad.server.ServerInformations.RUNNING_TRUE;
-import static sy.iyad.server.ServerInformations.UPTIME_COMMAND;
-import static sy.iyad.server.ServerInformations.VOLTAGE_COMMAND;
+import static sy.iyad.server.ServerInformation.CPU_COMMAND;
+import static sy.iyad.server.ServerInformation.RUNNING_TRUE;
+import static sy.iyad.server.ServerInformation.UPTIME_COMMAND;
+import static sy.iyad.server.ServerInformation.VOLTAGE_COMMAND;
 import static sy.iyad.server.Utils.Logger.PORT;
 import static sy.iyad.server.Utils.ServerInfo.ETHER;
 
@@ -70,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    class TaskLeds implements Runnable {
+    class TaskLed implements Runnable {
 
-        Runnable runnable = MainActivity.this::turnOnOffLeds;
+        Runnable runnable = MainActivity.this::turnOnOffLed;
         public void run() {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
@@ -92,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView( R.layout.activity_main);
 
         cmd =  findViewById(R.id.commandact);
-        gen =  findViewById(R.id.usergenact);
+        gen =  findViewById(R.id.usergen);
         loggerBtn =  findViewById(R.id.logger);
         cpu =  findViewById(R.id.cpu);
         voltage =  findViewById(R.id.voltage);
@@ -126,24 +123,16 @@ public class MainActivity extends AppCompatActivity {
                 finish();
         });
 
-        loggerBtn.setOnClickListener(v -> {
-            startLogging();
-        });
+        loggerBtn.setOnClickListener(v -> startLogging());
 
-        cmd.setOnClickListener(v ->  {
+        cmd.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CommanderActivity.class)));
 
-                startActivity(new Intent(MainActivity.this, CommanderActivity.class));
-        });
-
-        gen.setOnClickListener(v ->  {
-
-                startActivity(new Intent(MainActivity.this, GenerateUserActivity.class));
-        });
+        gen.setOnClickListener(v ->  startActivity(new Intent(this, GenerateUserActivity.class)));
     }
 
     private void startLogging(){
         loadListaVariable();
-        updateLedsStatus();
+        updateLedStatus();
         updateCpu();
         updateUptime();
         updateVoltage();
@@ -168,10 +157,10 @@ public class MainActivity extends AppCompatActivity {
         thread.start();
     }
 
-    private void updateLedsStatus() {
+    private void updateLedStatus() {
 
-       TaskLeds taskLeds = new TaskLeds();
-        Thread thread = new Thread(taskLeds);
+       TaskLed taskLed = new TaskLed();
+        Thread thread = new Thread(taskLed);
         thread.setDaemon(true);
         thread.start();
 
@@ -193,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
         radioButton.setChecked(isChecked);
     }
 
-    private void turnOnOffLeds() {
+    private void turnOnOffLed() {
 
         boolean[] booleans = new boolean[13];
         RadioButton[] radioButtons = new RadioButton[]{

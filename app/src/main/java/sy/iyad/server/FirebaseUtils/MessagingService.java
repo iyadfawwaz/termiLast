@@ -45,7 +45,7 @@ public class MessagingService extends FirebaseMessagingService {
     private void notificationBuild(@NonNull RemoteMessage remoteMessage) {
 
 
-        String sender = remoteMessage.getData().get("sender");
+        //String sender = remoteMessage.getData().get("sender");
         String message = remoteMessage.getData().get("message");
         String msgID = remoteMessage.getMessageId();
         String admin = remoteMessage.getData().get("admin");
@@ -87,7 +87,7 @@ public class MessagingService extends FirebaseMessagingService {
                 .setAutoCancel(true)
              //   .setStyle(new NotificationCompat.BigTextStyle().bigText(remoteMessage.getData().get("message")))
               //  .setStyle(new BigPictureStyle().bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.syavatar)))
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.symain))
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.remain))
                 .setContentTitle( remoteMessage.getData().get("sender"))
                 .setAllowSystemGeneratedContextualActions(true)
                 .setColor(Color.RED)

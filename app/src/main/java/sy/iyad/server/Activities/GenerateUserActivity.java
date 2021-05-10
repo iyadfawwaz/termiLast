@@ -3,8 +3,6 @@ package sy.iyad.server.Activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +22,7 @@ import sy.iyad.server.Utils.Users;
 import sy.iyad.server.Utils.UsersAdapter;
 import sy.iyad.server.Utils.UsersIntRandom;
 
-import static sy.iyad.server.ServerInformations.USER_PROFILES;
+import static sy.iyad.server.ServerInformation.USER_PROFILES;
 
 
 public class GenerateUserActivity extends AppCompatActivity {
@@ -42,6 +41,7 @@ public class GenerateUserActivity extends AppCompatActivity {
     Spinner spinner;
     TextView textView;
     EditText ulength;
+    FloatingActionButton actionButton;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,14 +56,25 @@ public class GenerateUserActivity extends AppCompatActivity {
         spinner =  findViewById(R.id.spinner);
         textView =  findViewById(R.id.wa);
         recyclerView =  findViewById(R.id.listax);
+        actionButton = findViewById(R.id.genact);
 
         init();
 
         loadProfiles();
 
-        button.setOnClickListener(new OnClickListener() {
-            public void onClick(View view) {
+        actionButton.setOnClickListener(v -> {
+            try {
 
+                int ad = Integer.parseInt(adet.getText().toString());
+                int pass = Integer.parseInt(plength.getText().toString());
+
+                createUsers(ad, Integer.parseInt(ulength.getText().toString()), prefix.getText().toString(), pass);
+            } catch (NumberFormatException e) {
+
+                textView.setText(e.getMessage());
+            }
+        });
+        button.setOnClickListener(v ->  {
                 try {
 
                     int ad = Integer.parseInt(adet.getText().toString());
@@ -73,7 +84,6 @@ public class GenerateUserActivity extends AppCompatActivity {
                 } catch (NumberFormatException e) {
 
                     textView.setText(e.getMessage());
-                }
             }
         });
     }
@@ -113,8 +123,8 @@ public class GenerateUserActivity extends AppCompatActivity {
 
         for (int j = 0; j < adet; j++) {
 
-            String username = prefix + new UsersIntRandom().ditectRand(userLength);
-            int password = new UsersIntRandom().ditectRand(passwordLenth);
+            String username = prefix + new UsersIntRandom().detectRand(userLength);
+            int password = new UsersIntRandom().detectRand(passwordLenth);
             String createUser = "/tool/user-manager/user/add customer=admin username="+ username+ " password="+ password;
 
             MikrotikServer.execute(createUser);

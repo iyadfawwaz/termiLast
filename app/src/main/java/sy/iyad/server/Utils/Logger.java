@@ -72,6 +72,7 @@ public class Logger {
                 socket.receive(datagramPacket);
 
                 while (isReceiving) {
+                    //noinspection BusyWait
                     Thread.sleep(1000);
                     ((Activity) context).runOnUiThread(() -> {
                         arrayList.add(new String(datagramPacket.getData()).trim());

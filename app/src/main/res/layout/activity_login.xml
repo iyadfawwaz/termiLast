@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -40,6 +55,7 @@
                 app:cardElevation="@dimen/d4">
 
     <TextView
+        android:textIsSelectable="true"
         android:linksClickable="true"
         android:autoLink="web|all|email|phone|map"
         android:id="@+id/textView"
@@ -147,47 +163,18 @@
         app:layout_constraintTop_toBottomOf="@+id/linx"
         android:layout_marginStart="@dimen/d5" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/d4"
-        android:padding="@dimen/d4"
-        android:src="@drawable/syavatar"
-        app:layout_constraintTop_toBottomOf="@id/connect"
-       app:layout_constraintBottom_toTopOf="@id/floatingActionButton"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:contentDescription="@string/app_name" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d4"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/d4"
+            android:src="@drawable/syavatar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linx" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/d5"
-        android:layout_marginRight="@dimen/d5"
-        android:layout_marginBottom="@dimen/d5"
-        android:clickable="true"
-        android:contentDescription="@string/app_name"
-        android:focusable="true"
-        android:background="@android:color/transparent"
-        style="@style/Animation.Design.BottomSheetDialog"
-        android:src="@drawable/avatarx"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:srcCompat="@drawable/avatarx" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/reges"
-        android:layout_width="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/remain"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/red"
-        android:contentDescription="@string/app_name"
-        tools:ignore="UnusedAttribute" />
-
-    <CheckBox
+        <CheckBox
         android:buttonTint="@color/orange"
         android:backgroundTint="@color/black"
         android:id="@+id/checkBox"
@@ -199,3 +186,29 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        style="@style/Animation.Design.BottomSheetDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/d5"
+        android:layout_marginRight="@dimen/d5"
+        android:layout_marginBottom="@dimen/d5"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        android:focusable="true"
+        android:src="@drawable/avatarx"
+        app:backgroundTint="@color/orange"
+        app:layout_anchor="@id/bottomAppBar"
+        tools:srcCompat="@drawable/avatarx" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

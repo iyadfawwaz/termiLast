@@ -39,4 +39,5 @@
     <string name="nova">#null</string>
     <string name="dele">حذف معلومات الدخول</string>
     <string name="log_">#logs</string>
+    <string name="app_namex">حفظ باستخدام</string>
 </resources>

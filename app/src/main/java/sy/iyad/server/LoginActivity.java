@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -18,7 +17,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.messaging.FirebaseMessaging;
 import org.json.JSONException;
@@ -36,10 +34,10 @@ import sy.iyad.server.FirebaseUtils.Token;
 import sy.iyad.server.Utils.ServerInfo;
 
 import static android.os.Build.VERSION_CODES.Q;
-import static sy.iyad.server.ServerInformations.ADMIN;
-import static sy.iyad.server.ServerInformations.ETHERSNAME_COMMAND;
-import static sy.iyad.server.ServerInformations.IP;
-import static sy.iyad.server.ServerInformations.PASSWORD;
+import static sy.iyad.server.ServerInformation.ADMIN;
+import static sy.iyad.server.ServerInformation.ETHERSNAME_COMMAND;
+import static sy.iyad.server.ServerInformation.IP;
+import static sy.iyad.server.ServerInformation.PASSWORD;
 import static sy.iyad.server.Utils.ServerInfo.*;
 
 
@@ -47,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE = 201;
     public static final String ACTION_LOGIN = "AcXFU2M0842021";
-    public static final String ACTION_RUN = "ArXFU2M0842021";
+   // public static final String ACTION_RUN = "ArXFU2M0842021";
     public static final String SHARED_KEY="Sk0842021ChineScood";
 
     EditText admin,ip,pass;
@@ -56,12 +54,14 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox checkBox;
     Toolbar toolbar;
 
-    FloatingActionButton actionButton,registerToken;
+    FloatingActionButton actionButton;
 
+    @SuppressLint("RestrictedApi")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_login);
 
+        askPermissions();
         if (!isRegistered) {
             registerId();
         }
@@ -71,14 +71,13 @@ public class LoginActivity extends AppCompatActivity {
             pass =  findViewById(R.id.password);
             textView =  findViewById(R.id.textView);
             actionButton = findViewById(R.id.floatingActionButton);
-            registerToken = findViewById(R.id.reges);
             checkBox = findViewById(R.id.checkBox);
             toolbar = findViewById(R.id.toolbar);
             toolbar.setCollapseIcon(R.drawable.avatarx);
-            toolbar.setTitle(getPackageName());
+            toolbar.setCollapsible(true);
+            toolbar.setTitle(getString(R.string.app_name));
             setSupportActionBar(toolbar);
 
-            askPermissions();
             laodMainInfo();
 
             login.setOnClickListener(v ->  {
@@ -94,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
             login.setOnLongClickListener(v ->  {
 
                     registerId();
-                                             return false;
+                                             return true;
                                      });
 
             actionButton.setOnClickListener(v ->  {
@@ -106,19 +105,11 @@ public class LoginActivity extends AppCompatActivity {
             actionButton.setOnLongClickListener(v -> {
                         showHappens("your vip : " + VIP );
                         textView.setBackgroundColor(VIP);
+                isRegistered = false;
+                registerId();
                         return true;
                     }
             );
-
-            registerToken.setOnClickListener(v -> {
-                isRegistered = false;
-                registerId();
-            });
-
-            registerToken.setOnLongClickListener(v -> {
-
-                return true;
-            });
 
     }
 
@@ -199,19 +190,22 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful() && task.getResult() != null) {
                             ServerInfo.tokenReference.push().setValue(new Token(task.getResult()));
                             ServerInfo.isRegistered = true;
+                            if (textView != null){
+                                textView.setText(task.getResult());
+                            }
                             showHappens(task.getResult());
                         } else if (!task.isSuccessful() && task.getException() != null) {
                             showHappens(task.getException().getMessage());
                             if (textView != null) {
-                                showHappens("threre found some connection problem" + task.getException().getMessage());
                                 textView.setText(task.getException().getMessage());
                             }
+                            showHappens("threre found some connection problem" + task.getException().getMessage());
                         }
                     });
         }
     }
 
-    private void showHappens( String message) {
+    private void showHappens(String message) {
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
     }
 
