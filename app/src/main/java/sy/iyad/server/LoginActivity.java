@@ -266,21 +266,21 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (MikrotikServer.getApi() != null && MikrotikServer.isConnected()){
+        if (MikrotikServer.getApi() != null && MikrotikServer.getApi().isConnected()){
             startActivity(new Intent(this, MainActivity.class));
         }
     }
     @Override
     protected void onRestart() {
         super.onRestart();
-        if (MikrotikServer.getApi() != null && MikrotikServer.isConnected()){
+        if (MikrotikServer.getApi() != null && MikrotikServer.getApi().isConnected()){
             startActivity(new Intent(this, MainActivity.class));
         }
     }
     @Override
     protected void onResume() {
         super.onResume();
-        if (MikrotikServer.getApi() != null && MikrotikServer.isConnected()){
+        if (MikrotikServer.getApi() != null && MikrotikServer.getApi().isConnected()){
             startActivity(new Intent(this, MainActivity.class));
         }
     }
