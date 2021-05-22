@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 import java.util.ArrayList;
-import sy.e.server.R;
+
+import sy.iyad.server.R;
 
 
 public class UsersAdapter extends Adapter<UsersHolder> {

@@ -5,7 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import sy.e.server.R;
+
+import sy.iyad.server.R;
 
 
 public class LogViewHolder extends RecyclerView.ViewHolder {

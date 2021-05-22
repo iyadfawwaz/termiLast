@@ -32,7 +32,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import sy.e.server.R;
+import sy.iyad.server.R;
 
 import static sy.iyad.server.LoginActivity.ACTION_LOGIN;
 

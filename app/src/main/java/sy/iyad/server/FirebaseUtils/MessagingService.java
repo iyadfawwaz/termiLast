@@ -18,8 +18,8 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-import sy.e.server.R;
 import sy.iyad.server.LoginActivity;
+import sy.iyad.server.R;
 import sy.iyad.server.Utils.ServerInfo;
 import sy.iyad.server.share.SharingActivity;
 

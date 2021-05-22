@@ -24,7 +24,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import sy.e.server.R;
 import sy.iyad.mikrotik.MikrotikServer;
 import sy.iyad.mikrotik.Models.ConnectionEventListener;
 import sy.iyad.mikrotik.Models.ExecutionEventListener;

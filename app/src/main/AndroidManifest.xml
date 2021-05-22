@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="sy.e.server">
+    package="sy.iyad.server">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -26,6 +27,7 @@
         tools:ignore="AllowBackup">
 
         <activity
+            android:exported="true"
             android:name="sy.iyad.server.LoginActivity"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -34,21 +36,25 @@
             </intent-filter>
         </activity>
         <activity
+            android:exported="true"
             android:name="sy.iyad.server.Activities.CommanderActivity"
             android:windowSoftInputMode="adjustResize">
 
         </activity>
         <activity
+            android:exported="true"
             android:name="sy.iyad.server.Activities.GenerateUserActivity"
             android:windowSoftInputMode="adjustResize">
 
         </activity>
         <activity
+            android:exported="true"
             android:name="sy.iyad.server.Activities.MainActivity"
             android:windowSoftInputMode="adjustResize">
 
         </activity>
         <activity
+            android:exported="true"
             android:name="sy.iyad.server.share.SharingActivity"
             android:windowSoftInputMode="adjustResize"
             android:label="@string/app_namex"
