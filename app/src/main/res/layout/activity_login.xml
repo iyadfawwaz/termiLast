@@ -14,135 +14,147 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical" >
+
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/newx"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:background="@color/cardview_dark_background"
-        android:id="@+id/linx"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:background="@color/cardview_shadow_end_color"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="@color/newx"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/d4"
-                app:layout_constraintTop_toTopOf="parent"
+
+        <SurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <LinearLayout
+            android:id="@+id/linx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cardview_dark_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/surfaceView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/c0"
-                app:cardCornerRadius="@dimen/d4"
-                app:cardElevation="@dimen/d4">
+                android:layout_height="match_parent"
+                android:background="@color/cardview_shadow_end_color">
 
-    <TextView
-        android:textIsSelectable="true"
-        android:linksClickable="true"
-        android:autoLink="web|all|email|phone|map"
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/d5"
-        android:background="@color/red"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@color/white" />
-            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/c0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d4"
+                    app:cardCornerRadius="@dimen/d4"
+                    app:cardElevation="@dimen/d4"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/d4"
-                app:layout_constraintBottom_toTopOf="@+id/c2"
-                app:layout_constraintTop_toBottomOf="@id/c0"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/c1"
-                app:cardElevation="@dimen/d4"
-                app:cardCornerRadius="@dimen/d4">
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d5"
+                        android:autoLink="web|all|email|phone|map"
+                        android:background="@color/red"
+                        android:fontFamily="sans-serif-condensed"
+                        android:linksClickable="true"
+                        android:textColor="@color/white"
+                        android:textIsSelectable="true" />
+                </androidx.cardview.widget.CardView>
 
-    <EditText
-        android:id="@+id/ip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/d4"
-        android:background="@color/white"
-        android:ems="10"
-        android:focusableInTouchMode="true"
-        android:fontFamily="serif-monospace"
-        android:hint="@string/ip"
-        android:inputType="textPersonName"
-        android:padding="@dimen/d4"
-        android:autofillHints="@string/app_name" />
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/d4"
-               app:layout_constraintBottom_toTopOf="@id/c3"
-                app:layout_constraintTop_toBottomOf="@id/c1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/c2"
-                app:cardCornerRadius="@dimen/d4"
-                app:cardElevation="@dimen/d4">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/c1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d4"
+                    app:cardCornerRadius="@dimen/d4"
+                    app:cardElevation="@dimen/d4"
+                    app:layout_constraintBottom_toTopOf="@+id/c2"
+                    app:layout_constraintTop_toBottomOf="@id/c0">
 
-    <EditText
-        android:id="@+id/admin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/d4"
-        android:background="@color/white"
-        android:ems="10"
-        android:focusableInTouchMode="true"
-        android:fontFamily="serif-monospace"
-        android:hint="@string/user"
-        android:inputType="textPersonName"
-        android:padding="@dimen/d4"
-        android:autofillHints="@string/app_name" />
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/d4"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/c2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="@dimen/d4"
-                app:cardCornerRadius="@dimen/d4"
-                android:id="@+id/c3">
+                    <EditText
+                        android:id="@+id/ip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/d4"
+                        android:autofillHints="@string/app_name"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="serif-monospace"
+                        android:hint="@string/ip"
+                        android:inputType="textPersonName"
+                        android:padding="@dimen/d4" />
+                </androidx.cardview.widget.CardView>
 
-            <EditText
-                android:id="@+id/password"
-                android:background="@color/white"
-                android:padding="@dimen/d4"
-                android:focusableInTouchMode="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/d4"
-                android:hint="@string/pass"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:fontFamily="serif-monospace"
-                android:autofillHints="@string/app_name" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/c2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d4"
+                    app:cardCornerRadius="@dimen/d4"
+                    app:cardElevation="@dimen/d4"
+                    app:layout_constraintBottom_toTopOf="@id/c3"
+                    app:layout_constraintTop_toBottomOf="@id/c1">
 
-            </androidx.cardview.widget.CardView>
+                    <EditText
+                        android:id="@+id/admin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/d4"
+                        android:autofillHints="@string/app_name"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="serif-monospace"
+                        android:hint="@string/user"
+                        android:inputType="textPersonName"
+                        android:padding="@dimen/d4" />
+                </androidx.cardview.widget.CardView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/c3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d4"
+                    app:cardCornerRadius="@dimen/d4"
+                    app:cardElevation="@dimen/d4"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/c2">
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/d4"
+                        android:autofillHints="@string/app_name"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="serif-monospace"
+                        android:hint="@string/pass"
+                        android:inputType="textPassword"
+                        android:padding="@dimen/d4" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
 
     <Button
