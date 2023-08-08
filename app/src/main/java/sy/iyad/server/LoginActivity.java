@@ -31,7 +31,6 @@ import sy.iyad.mikrotik.Utils.Api;
 import sy.iyad.server.Activities.MainActivity;
 import sy.iyad.server.FirebaseUtils.Token;
 import sy.iyad.server.Utils.ServerInfo;
-
 import static android.os.Build.VERSION_CODES.Q;
 import static sy.iyad.server.ServerInformation.ADMIN;
 import static sy.iyad.server.ServerInformation.ETHERSNAME_COMMAND;

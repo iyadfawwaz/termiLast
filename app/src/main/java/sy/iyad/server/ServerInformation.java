@@ -4,8 +4,8 @@ package sy.iyad.server;
 public abstract class ServerInformation {
 
     public static final String[] SERVER_KEYWORDS={
-            "system", "caps-man"    , "console" , "file"    ,"message" ,"tool",
-            "ip"  ,  "log"     ,    "mpls"    ,  "partitions" , "ppp"  ,  "ra",
+            "system", "caps-man"    , "console" , "file"    ,"message" ,"tool","monitor",
+            "ip"  ,  "log"     ,    "mpls"    ,  "partitions" , "ppp"  ,  "ra","ethernet",
             "certificate" , "disk"  ,   "interface" , "ipv6" ,"beep","quit",
             "metarouter" , "openflow"  ,"port"    ,    "queue" , "ro",
             "ping",
@@ -44,9 +44,11 @@ public abstract class ServerInformation {
     public static final String USER_PROFILES = "/tool/user-manager/profile/print";
     public static final String CPU_COMMAND = "/system/resource/cpu/print";
     public static final String UPTIME_COMMAND = "/system/resource/print return uptime";
-    public static final String VOLTAGE_COMMAND = "/system/health/print return voltage";
+    public static final String VOLTAGE_COMMAND = "/system/health/print where type=V";
     public static final String RUNNING_TRUE = "/interface/ethernet/print where running=true";
+    public static final String ETHERNET = "/interface/ethernet/print";
     public static final String ETHERSNAME_COMMAND = "/interface/ethernet/print";
+    public static final String DUPLEX = "/interface/ethernet/monitor numbers=";
     public static String IP = "2.2.2.2";
     public static String ADMIN = "admin";
     public static String PASSWORD="995x";

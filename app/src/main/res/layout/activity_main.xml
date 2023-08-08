@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/abc_vector_test"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/abc_vector_test">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -24,35 +23,39 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/d5"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="@dimen/d4">
+                    android:padding="@dimen/d4"
+                    app:layout_constraintBottom_toBottomOf="parent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/d4"
                         android:background="@color/teal_700"
                         android:orientation="vertical"
-                        android:padding="@dimen/d4">
+                        android:padding="@dimen/d4"
+                        android:weightSum="9">
 
                         <LinearLayout
+
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="120dp"
                             android:layout_margin="@dimen/d4"
-                            android:background="@color/cardview_light_background"
+                            android:layout_weight="1"
+                            android:background="@drawable/untitled1"
+                            android:gravity="bottom|center|center_vertical"
                             android:layoutDirection="ltr"
                             android:orientation="horizontal"
-                            android:padding="@dimen/d4"
-                            tools:targetApi="jelly_bean_mr1">
+
+                            android:padding="@dimen/d4">
 
                             <RadioButton
                                 android:id="@+id/radioButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="0.2"
+                                android:layout_weight="1"
                                 android:buttonTint="@color/orange"
                                 android:text="@string/lan1"
                                 tools:targetApi="lollipop" />
@@ -70,7 +73,7 @@
                                 android:id="@+id/radioButton3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="0.2"
+                                android:layout_weight="1"
                                 android:buttonTint="@color/orange"
                                 android:text="@string/lan3"
                                 tools:targetApi="lollipop" />
@@ -88,22 +91,82 @@
                                 android:id="@+id/radioButton5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="0.2"
+                                android:layout_weight="1"
                                 android:buttonTint="@color/orange"
+                                android:gravity="center"
                                 android:text="@string/lan5"
                                 tools:ignore="UnusedAttribute" />
 
                         </LinearLayout>
 
                         <LinearLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="3dp"
-                            android:background="@color/cardview_light_background"
+                            android:layout_margin="@dimen/d4"
+                            android:layout_weight="2"
+                            android:background="@color/white"
+                            android:gravity="center"
                             android:layoutDirection="ltr"
                             android:orientation="horizontal"
-                            android:padding="@dimen/d4"
-                            tools:targetApi="jelly_bean_mr1">
+                            android:padding="@dimen/d4">
+
+                            <TextView
+                                android:id="@+id/l01"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="01"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l02"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="02"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l03"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="03"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l04"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="04"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l05"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="05"
+                                android:textColor="@color/red" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:layout_margin="3dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/untitled1"
+                            android:gravity="bottom|fill_horizontal"
+                            android:layoutDirection="ltr"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/d4">
 
                             <RadioButton
                                 android:id="@+id/radioButton6"
@@ -153,14 +216,73 @@
                         </LinearLayout>
 
                         <LinearLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="3dp"
-                            android:background="@color/cardview_light_background"
+                            android:layout_margin="@dimen/d4"
+                            android:layout_weight="2"
+                            android:background="@color/white"
+                            android:gravity="center"
                             android:layoutDirection="ltr"
                             android:orientation="horizontal"
-                            android:padding="@dimen/d4"
-                            tools:targetApi="jelly_bean_mr1">
+                            android:padding="@dimen/d4">
+
+                            <TextView
+                                android:id="@+id/l06"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="06"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l07"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="07"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l08"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="08"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l09"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="09"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="10"
+                                android:textColor="@color/red" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:layout_margin="3dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/untitled2"
+                            android:gravity="bottom|center_horizontal"
+                            android:layoutDirection="ltr"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/d4">
 
                             <RadioButton
                                 android:id="@+id/radioButton11"
@@ -190,11 +312,55 @@
                                 tools:targetApi="lollipop" />
 
                         </LinearLayout>
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/d4"
+                            android:layout_weight="2"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:layoutDirection="ltr"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/d4">
+
+                            <TextView
+                                android:id="@+id/l11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="11"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="12"
+                                android:textColor="@color/red" />
+
+                            <TextView
+                                android:id="@+id/l13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="13"
+                                android:textColor="@color/red" />
+
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_margin="@dimen/d4"
                         android:layout_marginBottom="@dimen/d4"
                         android:orientation="horizontal"
@@ -230,7 +396,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_marginBottom="30dp"
                         android:orientation="horizontal"
@@ -268,30 +434,42 @@
                     <Button
                         android:id="@+id/commandact"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="12dp"
                         android:backgroundTint="@color/red"
                         android:text="@string/cmd"
-                        android:textColor="@color/white"
-                        tools:targetApi="lollipop" />
+                        android:textColor="@color/white" />
 
                     <Button
                         android:id="@+id/usergen"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="12dp"
                         android:backgroundTint="@color/orange"
                         android:text="@string/gen"
-                        android:textColor="@color/white"
-                        tools:targetApi="lollipop" />
+                        android:textColor="@color/white" />
 
                     <Button
                         android:id="@+id/logger"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="12dp"
                         android:text="@string/runbrow"
                         android:textColor="@color/white" />
+
+                    <EditText
+
+                        android:id="@+id/interval"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="زمن التحديث"
+                        android:inputType="number"
+                        android:textColor="@color/red"
+                        android:typeface="monospace"
+                        android:visibility="visible" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView"
@@ -302,8 +480,9 @@
 
                     <TextView
                         android:id="@+id/tdis"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
                         android:background="@color/white"
                         android:text="@string/disconnect"
                         android:textColor="@color/red"
@@ -324,11 +503,11 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/dis"
-        app:layout_anchor="@id/bottomAppBar5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:src="@drawable/avatarx"
-        app:backgroundTint="#EF5350" />
+        app:backgroundTint="#EF5350"
+        app:layout_anchor="@id/bottomAppBar5" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

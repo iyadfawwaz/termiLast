@@ -20,16 +20,18 @@ import sy.iyad.server.R;
 
 public class Logger {
 
-    public static int PORT = 5141;
+    public static int PORT = 5140;
     private final Context context;
     private final ArrayList<String> arrayList;
     private volatile boolean isReceiving =false;
     RecyclerView.Adapter<LogViewHolder> adapter;
     private final LinearLayoutManager linearLayoutManager;
+    private final long x;
 
-    public Logger(Context context, @NonNull RecyclerView recyclerView){
+    public Logger(Context context, @NonNull RecyclerView recyclerView,long x){
 
         this.context = context;
+        this.x = x;
         arrayList = new ArrayList<>();
         linearLayoutManager = new LinearLayoutManager(context);
 
@@ -74,7 +76,7 @@ public class Logger {
 
                 while (isReceiving) {
                     //noinspection BusyWait
-                    Thread.sleep(1000);
+                    Thread.sleep(x);
                     ((Activity) context).runOnUiThread(() -> {
                         arrayList.add(new String(datagramPacket.getData()).trim());
                         adapter.notifyDataSetChanged();
